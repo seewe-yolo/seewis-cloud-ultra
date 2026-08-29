@@ -7,10 +7,14 @@ spring:
         # 主库数据源
         master:
           type: ${spring.datasource.type}
-          driver-class-name: com.mysql.cj.jdbc.Driver
+          driver-class-name: ${datasource.workflow.driver-class-name:com.mysql.cj.jdbc.Driver}
           url: ${datasource.workflow.url}
           username: ${datasource.workflow.username}
           password: ${datasource.workflow.password}
+  liquibase:
+    # Existing environments must be baselined with changelogSync before enabling migrations.
+    enabled: false
+    change-log: classpath:db/changelog/db.changelog-master.yaml
 #        oracle:
 #          type: ${spring.datasource.type}
 #          driverClassName: oracle.jdbc.OracleDriver

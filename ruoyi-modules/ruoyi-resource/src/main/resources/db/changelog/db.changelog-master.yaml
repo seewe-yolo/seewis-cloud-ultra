@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: mysql/resource_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: mysql/resource_data.sql
+      relativeToChangelogFile: true
+  - include:
+      file: postgresql/resource_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: postgresql/resource_data.sql
+      relativeToChangelogFile: true

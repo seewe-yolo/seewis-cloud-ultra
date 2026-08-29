@@ -12,6 +12,18 @@
     <artifactId>ruoyi-snailai-server</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-liquibase</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- Snail AI 服务端 -->
         <dependency>
             <groupId>com.aizuda</groupId>

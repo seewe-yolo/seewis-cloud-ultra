@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: mysql/gen_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: mysql/gen_data.sql
+      relativeToChangelogFile: true
+  - include:
+      file: postgresql/gen_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: postgresql/gen_data.sql
+      relativeToChangelogFile: true

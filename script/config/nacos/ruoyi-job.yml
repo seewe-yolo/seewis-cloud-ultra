@@ -1,4 +1,8 @@
 spring:
+  liquibase:
+    # Existing environments must be baselined with changelogSync before enabling migrations.
+    enabled: false
+    change-log: classpath:db/changelog/db.changelog-master.yaml
   datasource:
     dynamic:
       # 设置默认的数据源或者数据源组,默认值即为 master
@@ -8,7 +12,7 @@ spring:
         # 主库数据源
         master:
           type: ${spring.datasource.type}
-          driver-class-name: com.mysql.cj.jdbc.Driver
+          driver-class-name: ${datasource.job.driver-class-name:com.mysql.cj.jdbc.Driver}
           url: ${datasource.job.url}
           username: ${datasource.job.username}
           password: ${datasource.job.password}

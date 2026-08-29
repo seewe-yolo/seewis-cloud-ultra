@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: mysql/job_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: mysql/job_data.sql
+      relativeToChangelogFile: true
+  - include:
+      file: postgresql/job_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: postgresql/job_data.sql
+      relativeToChangelogFile: true

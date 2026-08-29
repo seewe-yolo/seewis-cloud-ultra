@@ -1,6 +1,8 @@
 datasource:
   system-master:
     # jdbc 所有参数配置参考 https://lionli.blog.csdn.net/article/details/122018562
+    # PostgreSQL 环境请在环境配置中覆盖 driver-class-name 和 url
+    # driver-class-name: org.postgresql.Driver
     # rewriteBatchedStatements=true 批处理优化 大幅提升批量插入更新删除性能
     url: jdbc:mysql://localhost:3306/ry-cloud?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
     username: root
