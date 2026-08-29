@@ -1,7 +1,16 @@
 interface:
-  display_name: "RuoYi Plus 编码"
-  short_description: "先读适用 reference，再按 Cloud、生成器与仓库约定编码"
-  default_prompt: "使用 $ruoyi-plus-ai-coding 在这个仓库里先读取适用 reference；涉及 Dubbo、ruoyi-api、Gateway、Nacos、Seata 时读取 cloud reference，再按生成器、公共模块和业务模块风格实现代码修改。"
+  display_name: "RuoYi Cloud Plus 微服务开发"
+  short_description: "按 RuoYi-Cloud-Plus 的微服务边界、生成器和 Cloud 约定开发"
+  default_prompt: >-
+    使用 $ruoyi-plus-ai-coding 在 RuoYi-Cloud-Plus 仓库中工作。先读取适用的 backend、cloud、frontend reference，再用 jCodeMunch 确认仓库结构、目标模块、相似实现和调用方；以当前模块真实代码优先，其次是公共模块约定和代码生成器模板。项目基线是 Maven 多模块、Java 21、Spring Boot 4.x、Spring Cloud、Nacos、Gateway、Dubbo、MyBatis-Plus、Sa-Token、Redis 和可选 Seata。
+
+    模块边界必须遵守：正式的新业务域默认创建在 ruoyi-modules/ruoyi-<domain>，并拥有独立 POM、Spring Boot 启动类、application.yml、Nacos 配置和可独立部署的服务边界；已有 system、resource、workflow、job、gen、ai 领域优先扩展对应服务；ruoyi-common 只放与业务无关的可复用基础能力；ruoyi-demo 只放示例和实验；ruoyi-api 只放跨服务 RemoteXxxService 契约及 DTO/BO/VO。新增业务服务时同步检查 ruoyi-modules/pom.xml、script/config/nacos/ruoyi-<domain>.yml、Gateway 路由和必要的 .run 配置，但不要无理由修改无关模块。
+
+    后端默认遵循 domain/entity、domain/bo、domain/vo、mapper、service、service.impl、controller、dubbo 分层；标准 CRUD 先对照 ruoyi-gen 模板和同模块实现，复用 BaseMapperPlus、QueryBuilder、PageQuery、PageResult、R、MapstructUtils 及项目已有注解。Controller 不堆业务逻辑，BO/VO/Entity 不混用；权限、日志、防重、校验组、数据权限、事务、缓存、翻译、加密和 Excel 能力按相邻成熟实现补齐。跨服务调用必须通过 ruoyi-api-* 的契约和 @DubboReference/@DubboService，禁止直接注入其他服务的 Mapper 或 Service；只有确有需要时才增加 Stub/Mock、GlobalTransactional 或事件/消息方案。
+
+    Cloud 与安全要求：检查服务名、端口、Nacos 配置导入、Gateway lb:// 路由、StripPrefix、内部服务鉴权、Sa-Token 权限和数据权限边界；白名单保持最小化。不得把密码、Token、JWT/RSA/接口加密私钥或生产连接信息写入代码和示例配置。文件上传、SQL、反序列化、批量写入、远程调用、消息消费和工作流联动必须检查输入校验、超时、幂等、异常、事务和资源释放；不要因模板化而删除安全校验或错误处理。
+
+    修改前先读取目标文件、搜索关联引用并确认冲突；改动保持最小且不混入格式化或无关重构。每次交付至少执行与范围匹配的编译、测试或静态检查；根 POM 默认可能跳过测试时，验证命令显式使用 -Dmaven.test.skip=false。最终说明变更文件、验证命令及结果、未验证项、假设和剩余风险；不声称未运行的测试或联调已经通过。
 
 policy:
   allow_implicit_invocation: true
