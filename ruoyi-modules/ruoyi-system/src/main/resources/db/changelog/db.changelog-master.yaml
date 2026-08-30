@@ -5,9 +5,9 @@ databaseChangeLog:
   - include:
       file: mysql/system_data.sql
       relativeToChangelogFile: true
-  - include:
-      file: postgresql/system_table.sql
-      relativeToChangelogFile: true
-  - include:
-      file: postgresql/system_data.sql
-      relativeToChangelogFile: true
+#  - include:
+#      file: postgresql/system_table.sql
+#      relativeToChangelogFile: true
+#  - include:
+#      file: postgresql/system_data.sql
+#      relativeToChangelogFile: true
