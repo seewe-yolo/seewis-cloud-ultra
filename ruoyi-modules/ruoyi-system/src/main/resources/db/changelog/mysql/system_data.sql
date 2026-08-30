@@ -1,26 +1,50 @@
 --liquibase formatted sql
 
 --changeset seewis:system-mysql-data-baseline dbms:mysql splitStatements:true
-insert into sys_dept values(1761000000000000100, 0, '0', 'XXX科技', null, 0, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000101, 1761000000000000100, '0,1761000000000000100', '深圳总公司', null, 1, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000102, 1761000000000000100, '0,1761000000000000100', '长沙分公司', null, 2, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000103, 1761000000000000101, '0,1761000000000000100,1761000000000000101', '研发部门', null, 1, 1761100000000000001, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000104, 1761000000000000101, '0,1761000000000000100,1761000000000000101', '市场部门', null, 2, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000105, 1761000000000000101, '0,1761000000000000100,1761000000000000101', '测试部门', null, 3, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000106, 1761000000000000101, '0,1761000000000000100,1761000000000000101', '财务部门', null, 4, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000107, 1761000000000000101, '0,1761000000000000100,1761000000000000101', '运维部门', null, 5, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000108, 1761000000000000102, '0,1761000000000000100,1761000000000000102', '市场部门', null, 1, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_dept values(1761000000000000109, 1761000000000000102, '0,1761000000000000100,1761000000000000102', '财务部门', null, 2, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
-insert into sys_user values(1761100000000000001, 1761000000000000103, 'admin', '疯狂的狮子Li', 'sys_user', 'crazyLionLi@163.com', '15888888888', '1', null, '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', sysdate(), 1761000000000000103, 1761100000000000001, sysdate(), null, null, '管理员');
-insert into sys_post values(1761200000000000001, 1761000000000000103, 'ceo', null, '董事长', 1, '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '');
+insert into sys_dept values(1761000000000000100, 0, '0', '总公司', null, 0, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000101, 1761000000000000100, '0,1761000000000000100', '总经办', null, 1, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000102, 1761000000000000100, '0,1761000000000000100', '信息技术部', null, 2, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000103, 1761000000000000100, '0,1761000000000000100', '1号分公司', null, 3, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000104, 1761000000000000103, '0,1761000000000000100,1761000000000000103', '采购部', null, 1, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000105, 1761000000000000103, '0,1761000000000000100,1761000000000000103', '销售部', null, 2, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000106, 1761000000000000103, '0,1761000000000000100,1761000000000000103', '物流运输部', null, 3, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000107, 1761000000000000103, '0,1761000000000000100,1761000000000000103', '综合部', null, 4, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000108, 1761000000000000103, '0,1761000000000000100,1761000000000000103', '后勤部', null, 5, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000109, 1761000000000000103, '0,1761000000000000100,1761000000000000103', '仓储部', null, 6, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000110, 1761000000000000103, '0,1761000000000000100,1761000000000000103', '人事部', null, 7, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000111, 1761000000000000103, '0,1761000000000000100,1761000000000000103', '财务部', null, 8, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000112, 1761000000000000100, '0,1761000000000000100', '2号分公司', null, 4, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000113, 1761000000000000112, '0,1761000000000000100,1761000000000000112', '采购部', null, 1, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000114, 1761000000000000112, '0,1761000000000000100,1761000000000000112', '销售部', null, 2, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000115, 1761000000000000112, '0,1761000000000000100,1761000000000000112', '物流运输部', null, 3, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000116, 1761000000000000112, '0,1761000000000000100,1761000000000000112', '综合部', null, 4, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000117, 1761000000000000112, '0,1761000000000000100,1761000000000000112', '后勤部', null, 5, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000118, 1761000000000000112, '0,1761000000000000100,1761000000000000112', '仓储部', null, 6, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000119, 1761000000000000112, '0,1761000000000000100,1761000000000000112', '人事部', null, 7, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_dept values(1761000000000000120, 1761000000000000112, '0,1761000000000000100,1761000000000000112', '财务部', null, 8, null, '15888888888', 'xxx@qq.com', '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null);
+insert into sys_user values(1761100000000000001, 1761000000000000102, 'admin', '疯狂的狮子Li', 'sys_user', 'crazyLionLi@163.com', '15888888888', '1', null, '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', sysdate(), 1761000000000000103, 1761100000000000001, sysdate(), null, null, '管理员');
+insert into sys_post values(1761200000000000001, 1761000000000000100, 'ceo', null, '董事长', 1, '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '');
 insert into sys_post values(1761200000000000002, 1761000000000000100, 'se', null, '项目经理', 2, '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '');
 insert into sys_post values(1761200000000000003, 1761000000000000100, 'hr', null, '人力资源', 3, '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '');
 insert into sys_post values(1761200000000000004, 1761000000000000100, 'user', null, '普通员工', 4, '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '');
 insert into sys_role values(1761300000000000001, '超级管理员', 'superadmin', 1, 1, 1, 1, '0', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '超级管理员');
+insert into sys_role values(1761300000000000002, '董事长', 'chairman', 2, 1, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：全部数据');
+insert into sys_role values(1761300000000000003, '总经理', 'generalManager', 3, 1, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：全部数据');
+insert into sys_role values(1761300000000000004, '部长', 'minister', 4, 4, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：本部门及以下');
+insert into sys_role values(1761300000000000005, '采购经理', 'purchaseManager', 5, 4, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：本部门及以下');
+insert into sys_role values(1761300000000000006, '销售经理', 'salesManager', 6, 4, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：本部门及以下');
+insert into sys_role values(1761300000000000007, '财务经理', 'financeManager', 7, 4, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：本部门及以下');
+insert into sys_role values(1761300000000000008, '采购业务员', 'purchaseClerk', 8, 5, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：仅本人');
+insert into sys_role values(1761300000000000009, '销售业务员', 'salesClerk', 9, 5, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：仅本人');
+insert into sys_role values(1761300000000000010, '物流内勤', 'logisticsClerk', 10, 5, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：仅本人');
+insert into sys_role values(1761300000000000011, '仓管员', 'warehouseKeeper', 11, 5, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：仅本人');
+insert into sys_role values(1761300000000000012, '会计', 'accountant', 12, 5, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：仅本人');
+insert into sys_role values(1761300000000000013, '出纳', 'cashier', 13, 5, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：仅本人');
+insert into sys_role values(1761300000000000014, '人事专员', 'hrSpecialist', 14, 5, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：仅本人');
+insert into sys_role values(1761300000000000015, '行政专员', 'adminSpecialist', 15, 5, 1, 1, '0', '0', 1761000000000000100, 1761100000000000001, sysdate(), null, null, '数据权限：仅本人');
 insert into sys_menu values(1761400000000000001, '系统管理', 0, 1, 'system', null, '', 'N', 'Y', 'M', '0', '0', '', 'system', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '系统管理目录');
 insert into sys_menu values(1761400000000000002, '系统监控', 0, 3, 'monitor', null, '', 'N', 'Y', 'M', '0', '0', '', 'monitor', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '系统监控目录');
 insert into sys_menu values(1761400000000000003, '系统工具', 0, 4, 'tool', null, '', 'N', 'Y', 'M', '0', '0', '', 'tool', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '系统工具目录');
-insert into sys_menu values(1761400000000000004, 'PLUS官网', 0, 9, 'https://gitee.com/dromara/RuoYi-Cloud-Plus', null, '', 'Y', 'Y', 'M', '0', '0', '', 'guide', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, 'RuoYi-Vue-Plus官网地址');
 insert into sys_menu values(1761400000000000100, '用户管理', 1761400000000000001, 1, 'user', 'system/user/index', '', 'N', 'Y', 'C', '0', '0', 'system:user:list', 'user', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '用户管理菜单');
 insert into sys_menu values(1761400000000000101, '角色管理', 1761400000000000001, 2, 'role', 'system/role/index', '', 'N', 'Y', 'C', '0', '0', 'system:role:list', 'peoples', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '角色管理菜单');
 insert into sys_menu values(1761400000000000102, '菜单管理', 1761400000000000001, 3, 'menu', 'system/menu/index', '', 'N', 'Y', 'C', '0', '0', 'system:menu:list', 'tree-table', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '菜单管理菜单');
@@ -233,6 +257,8 @@ insert into sys_dict_data values(1761600000000000059, 11, '超时', 'timeout', '
 insert into sys_config values(1761700000000000001, '用户管理-账号初始密码', 'sys.user.initPassword', '123456', 'Y', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '初始化密码 123456');
 insert into sys_config values(1761700000000000002, '账号自助-是否开启用户注册功能', 'sys.account.registerUser', 'false', 'Y', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '是否开启注册用户功能（true开启，false关闭）');
 insert into sys_config values(1761700000000000003, 'OSS预览列表资源开关', 'sys.oss.previewListResource', 'true', 'Y', 1761000000000000103, 1761100000000000001, sysdate(), null, null, 'true:开启, false:关闭');
+insert into sys_config values(1761700000000000004, '账号自助-验证码类型', 'sys.account.captchaType', 'math', 'Y', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '图片验证码类型：math 数字算式，char 字符');
+insert into sys_config values(1761700000000000005, '账号自助-小程序登录配置', 'sys.account.xcxApps', '[{"appid":"wx0000000000000001","appSecret":"请替换为小程序1的AppSecret"},{"appid":"wx0000000000000002","appSecret":"请替换为小程序2的AppSecret"}]', 'Y', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '小程序 appid 与密钥（JSON 数组），登录未传 appid 且仅配置一个时自动使用该配置');
 insert into sys_notice values(1761800000000000001, '温馨提醒：2018-07-01 新版本发布啦', '2', '新版本内容', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '管理员');
 insert into sys_notice values(1761800000000000002, '维护通知：2018-07-01 系统凌晨维护', '1', '维护内容', '0', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '管理员');
 insert into sys_client values (1762000000000000001, 'e5cd7e4891bf95d1d19206ce24a7b32e', 'pc', 'pc123', 'password,social', 'pc', null, null, 1800, 604800, 0, 0, 1761000000000000103, 1761100000000000001, sysdate(), 1761100000000000001, sysdate());
@@ -266,16 +292,10 @@ update sys_menu set path = 'oss/config', component = 'system/oss-config/index', 
 -- ### iframe 菜单
 update sys_menu set path = 'admin', component = 'FrameView', query_param = '{"url":"https://ruoyi.xlsea.cn/admin/"}', is_frame = 'N', is_cache = 'N', icon = 'bx:bxl-spring-boot', menu_name = 'menu.monitor_admin' where menu_id = 1761400000000000114;
 update sys_menu set path = 'snail-job', component = 'FrameView', query_param = '{"url":"https://preview.snailjob.opensnail.com/"}', is_frame = 'N', is_cache = 'N', icon = 'gridicons:scheduled', menu_name = 'menu.monitor_snail-job' where menu_id = 1761400000000000110;
-update sys_menu set component = 'FrameView' where menu_id in (1761400000000000112, 1761400000000000121);
-
--- ### 外链菜单
-update sys_menu set menu_name = 'RuoYi-Vue-Plus', order_num = 100, path = 'https://gitee.com/dromara/RuoYi-Vue-Plus', component = 'FrameView', icon = 'local-icon-gitee', remark = 'RuoYi-Vue-Plus 仓库地址' where menu_id = 1761400000000000004;
-insert into sys_menu (menu_id, menu_name, parent_id, order_num, path, component, query_param, is_frame, is_cache, menu_type, visible, status, perms, icon, active_menu, ext, create_dept, create_by, create_time, update_by, update_time, remark)
-values (1761400000000000009, 'route.about', 0, 99, 'about', 'about/index', '', 'N', 'N', 'C', '0', '0', '', 'fluent:book-information-24-regular', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, '关于页面');
-insert into sys_menu (menu_id, menu_name, parent_id, order_num, path, component, query_param, is_frame, is_cache, menu_type, visible, status, perms, icon, active_menu, ext, create_dept, create_by, create_time, update_by, update_time, remark)
-values (1761400000000000007, 'Soybean Admin', 0, 100, 'https://github.com/soybeanjs', 'FrameView', '', 'Y', 'Y', 'M', '0', '0', '', 'mdi:github', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, 'Soybean Admin 仓库地址');
-insert into sys_menu (menu_id, menu_name, parent_id, order_num, path, component, query_param, is_frame, is_cache, menu_type, visible, status, perms, icon, active_menu, ext, create_dept, create_by, create_time, update_by, update_time, remark)
-values (1761400000000000008, 'RuoYi-Plus-Soybean', 0, 100, 'https://gitee.com/xlsea/ruoyi-plus-soybean', 'FrameView', '', 'Y', 'Y', 'M', '0', '0', '', 'local-icon-gitee', '', '', 1761000000000000103, 1761100000000000001, sysdate(), null, null, 'RuoYi-Plus-Soybean 仓库地址');
+update sys_menu set component = 'FrameView', icon = 'mdi:cloud-cog-outline' where menu_id = 1761400000000000112;
+update sys_menu set component = 'FrameView', icon = 'ri:robot-2-line' where menu_id = 1761400000000000121;
+-- ### 默认隐藏的控制台菜单
+update sys_menu set visible = '1' where menu_id in (1761400000000000112, 1761400000000000113, 1761400000000000114, 1761400000000000121);
 
 -- ### 管理端不支持的菜单
 update sys_menu set status = '1' where menu_id in (1761400000000000116, 1761400000000000130, 1761400000000000131, 1761400000000000132, 1761400000000011616, 1761400000000011618, 1761400000000011638, 1761400000000011700, 1761400000000011701);
