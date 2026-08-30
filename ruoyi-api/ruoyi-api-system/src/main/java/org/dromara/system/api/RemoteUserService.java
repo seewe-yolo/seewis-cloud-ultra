@@ -51,12 +51,13 @@ public interface RemoteUserService {
     LoginUser getUserInfoByEmail(String email) throws UserException;
 
     /**
-     * 通过openid查询用户信息
+     * 通过openid查询小程序用户信息，用户不存在时自动注册
      *
      * @param openid openid
+     * @param phone  手机号一键登录获取的真实手机号，首次登录自动注册时作为账号，可为空
      * @return 结果
      */
-    XcxLoginUser getUserInfoByOpenid(String openid) throws UserException;
+    XcxLoginUser getUserInfoByOpenid(String openid, String phone) throws UserException;
 
     /**
      * 注册用户信息

@@ -10,6 +10,11 @@ security:
     numberLength: 1
     # 字符验证码长度
     charLength: 4
+  # 小程序登录配置（grantType=xcx）
+  # 优先使用参数管理中的 sys.account.xcxApps（JSON 数组，支持多个小程序）；未配置该参数时回退使用此处的 yml 映射
+  xcx:
+    apps:
+      # 你的小程序appid: 你的小程序appSecret
 
 # 用户配置
 user:

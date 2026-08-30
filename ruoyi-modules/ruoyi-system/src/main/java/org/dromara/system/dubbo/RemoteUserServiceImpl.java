@@ -4,10 +4,14 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Opt;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.crypto.digest.BCrypt;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.dromara.common.core.constant.SystemConstants;
 import org.dromara.common.core.enums.UserStatus;
+import org.dromara.common.core.enums.UserType;
 import org.dromara.common.core.exception.ServiceException;
 import org.dromara.common.core.exception.user.UserException;
 import org.dromara.common.core.utils.MapstructUtils;
@@ -23,6 +27,7 @@ import org.dromara.system.api.model.PostDTO;
 import org.dromara.system.api.model.RoleDTO;
 import org.dromara.system.api.model.XcxLoginUser;
 import org.dromara.system.domain.SysUser;
+import org.dromara.system.domain.SysSocial;
 import org.dromara.system.domain.SysUserPost;
 import org.dromara.system.domain.SysUserRole;
 import org.dromara.system.domain.bo.SysUserBo;
@@ -33,8 +38,10 @@ import org.dromara.system.domain.vo.SysUserVo;
 import org.dromara.system.mapper.SysUserMapper;
 import org.dromara.system.mapper.SysUserPostMapper;
 import org.dromara.system.mapper.SysUserRoleMapper;
+import org.dromara.system.mapper.SysSocialMapper;
 import org.dromara.system.service.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -58,6 +65,7 @@ public class RemoteUserServiceImpl implements RemoteUserService {
     private final SysUserMapper userMapper;
     private final SysUserRoleMapper userRoleMapper;
     private final SysUserPostMapper userPostMapper;
+    private final SysSocialMapper socialMapper;
 
     /**
      * 通过用户名查询用户信息
@@ -138,23 +146,34 @@ public class RemoteUserServiceImpl implements RemoteUserService {
     }
 
     /**
-     * 通过openid查询用户信息
+     * 通过 openid 查询小程序用户，首次登录自动以授权手机号注册并绑定 openid
      *
      * @param openid openid
+     * @param phone  手机号一键登录获取的真实手机号，首次登录自动注册时作为账号，可为空
      * @return 结果
      */
     @Override
-    public XcxLoginUser getUserInfoByOpenid(String openid) throws UserException {
-        // todo 自行实现 userService.selectUserByOpenid(openid);
-        SysUser sysUser = new SysUser();
+    @Transactional(rollbackFor = Exception.class)
+    public XcxLoginUser getUserInfoByOpenid(String openid, String phone) throws UserException {
+        // 通过 sys_social 绑定关系查询小程序用户（source 固定为 xcx）
+        SysSocial social = socialMapper.selectOne(new LambdaQueryWrapper<SysSocial>()
+            .eq(SysSocial::getSource, "xcx")
+            .eq(SysSocial::getOpenId, openid)
+            .last("limit 1"));
+        SysUser sysUser;
+        if (ObjectUtil.isNull(social)) {
+            // 首次登录，以授权手机号自动注册
+            sysUser = registerXcxUser(openid, phone);
+        } else {
+            sysUser = userMapper.selectById(social.getUserId());
+        }
         if (ObjectUtil.isNull(sysUser)) {
-            // todo 用户不存在 业务逻辑自行实现
+            throw new UserException("user.not.exists");
         }
         if (UserStatus.DISABLE.getCode().equals(sysUser.getStatus())) {
-            // todo 用户已被停用 业务逻辑自行实现
+            throw new UserException("user.blocked", sysUser.getUserName());
         }
         // 框架登录不限制从什么表查询 只要最终构建出 LoginUser 即可
-        // 此处可根据登录用户的数据不同 自行创建 loginUser 属性不够用继承扩展就行了
         XcxLoginUser loginUser = new XcxLoginUser();
         loginUser.setUserId(sysUser.getUserId());
         loginUser.setUsername(sysUser.getUserName());
@@ -162,6 +181,48 @@ public class RemoteUserServiceImpl implements RemoteUserService {
         loginUser.setUserType(sysUser.getUserType());
         loginUser.setOpenid(openid);
         return loginUser;
+    }
+
+    /**
+     * 小程序首次登录自动注册：以微信手机号一键登录授权的真实手机号作为账号，昵称默认"微信用户+随机数"，
+     * 密码取 sys.user.initPassword 参数（默认 123456），头像留空由前端展示默认头像，性别默认未知。
+     * 若已存在同手机号账号（如之前用手机号注册过的用户），直接绑定该账号。
+     */
+    private SysUser registerXcxUser(String openid, String phone) {
+        if (StringUtils.isBlank(phone)) {
+            throw new ServiceException("首次登录需要手机号授权，请重新点击手机号授权后登录");
+        }
+        if (!phone.matches("^1[3-9]\\d{9}$")) {
+            throw new ServiceException("手机号格式不正确: " + phone);
+        }
+        SysUser sysUser = userMapper.selectOne(new LambdaQueryWrapper<SysUser>()
+            .eq(SysUser::getUserName, phone)
+            .last("limit 1"));
+        if (ObjectUtil.isNull(sysUser)) {
+            String initPassword = StringUtils.blankToDefault(
+                configService.selectConfigByKey("sys.user.initPassword"), "123456");
+            SysUserBo userBo = new SysUserBo();
+            userBo.setUserName(phone);
+            userBo.setNickName("微信用户" + RandomUtil.randomNumbers(4));
+            userBo.setPassword(BCrypt.hashpw(initPassword));
+            userBo.setGender("2");
+            userBo.setUserType(UserType.APP_USER.getUserType());
+            userBo.setStatus(UserStatus.OK.getCode());
+            userBo.setRemark("小程序首次登录自动注册");
+            sysUser = MapstructUtils.convert(userBo, SysUser.class);
+            userMapper.insert(sysUser);
+        }
+
+        // 绑定 openid 与用户关系
+        SysSocial social = new SysSocial();
+        social.setUserId(sysUser.getUserId());
+        social.setAuthId(openid);
+        social.setSource("xcx");
+        social.setOpenId(openid);
+        social.setUserName(sysUser.getUserName());
+        social.setNickName(sysUser.getNickName());
+        socialMapper.insert(social);
+        return sysUser;
     }
 
     /**

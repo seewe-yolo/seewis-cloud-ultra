@@ -25,4 +25,9 @@ public class XcxLoginBody extends LoginBody {
     @NotBlank(message = "{xcx.code.not.blank}")
     private String xcxCode;
 
+    /**
+     * 手机号一键登录 code（button open-type="getPhoneNumber" 获取），首次登录自动注册时必传
+     */
+    private String phoneCode;
+
 }
