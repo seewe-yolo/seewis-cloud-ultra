@@ -6,6 +6,7 @@ import cn.hutool.captcha.generator.RandomGenerator;
 import cn.hutool.core.util.IdUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.dromara.auth.config.WaveAndCircleCaptcha;
 import org.dromara.auth.domain.vo.CaptchaVo;
 import org.dromara.auth.properties.CaptchaProperties;
@@ -17,6 +18,7 @@ import org.dromara.common.core.utils.StringUtils;
 import org.dromara.common.redis.annotation.RateLimiter;
 import org.dromara.common.redis.enums.LimitType;
 import org.dromara.common.redis.utils.RedisUtils;
+import org.dromara.system.api.RemoteConfigService;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -39,6 +41,9 @@ import java.time.Duration;
 public class CaptchaController {
 
     private final CaptchaProperties captchaProperties;
+
+    @DubboReference
+    private final RemoteConfigService remoteConfigService;
 
     /**
      * 生成验证码
@@ -64,7 +69,9 @@ public class CaptchaController {
         String uuid = IdUtil.simpleUUID();
         String verifyKey = GlobalConstants.CAPTCHA_CODE_KEY + uuid;
         // 生成验证码
-        String captchaType = captchaProperties.getType();
+        // 验证码类型：优先取参数管理中的 sys.account.captchaType（math/char），未配置时回退 yml 配置
+        String captchaType = StringUtils.blankToDefault(
+            remoteConfigService.getConfigValue("sys.account.captchaType"), captchaProperties.getType());
         CodeGenerator codeGenerator;
         if ("math".equals(captchaType)) {
             codeGenerator = new MathGenerator(captchaProperties.getNumberLength(), false);
