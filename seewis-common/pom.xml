@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.dromara</groupId>
+        <artifactId>seewis-cloud-plus</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>seewis-common-bom</module>
+        <module>seewis-common-alibaba-bom</module>
+        <module>seewis-common-log</module>
+        <module>seewis-common-service-impl</module>
+        <module>seewis-common-excel</module>
+        <module>seewis-common-core</module>
+        <module>seewis-common-redis</module>
+        <module>seewis-common-doc</module>
+        <module>seewis-common-security</module>
+        <module>seewis-common-satoken</module>
+        <module>seewis-common-web</module>
+        <module>seewis-common-mybatis</module>
+        <module>seewis-common-job</module>
+        <module>seewis-common-dubbo</module>
+        <module>seewis-common-seata</module>
+        <module>seewis-common-loadbalancer</module>
+        <module>seewis-common-oss</module>
+        <module>seewis-common-mail</module>
+        <module>seewis-common-sms</module>
+        <module>seewis-common-logstash</module>
+        <module>seewis-common-elasticsearch</module>
+        <module>seewis-common-skylog</module>
+        <module>seewis-common-prometheus</module>
+        <module>seewis-common-translation</module>
+        <module>seewis-common-sensitive</module>
+        <module>seewis-common-json</module>
+        <module>seewis-common-encrypt</module>
+        <module>seewis-common-push</module>
+        <module>seewis-common-liteflow</module>
+        <module>seewis-common-social</module>
+        <module>seewis-common-nacos</module>
+        <module>seewis-common-bus</module>
+        <module>seewis-common-ai</module>
+        <module>seewis-common-mqtt</module>
+        <module>seewis-common-mcp</module>
+    </modules>
+
+    <artifactId>seewis-common</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        seewis-common通用模块
+    </description>
+
+</project>

@@ -1,6 +1,6 @@
 ---
 name: backend-cloud
-description: Cloud 后端专家。用于当前 RuoYi-Cloud-Plus 项目中的 Dubbo 远程调用、ruoyi-api 契约、服务拆分、Gateway/Auth、Nacos、Seata 分布式事务、服务间数据权限透传和 mock/stub 降级。
+description: Cloud 后端专家。用于当前 RuoYi-Cloud-Plus 项目中的 Dubbo 远程调用、seewis-api 契约、服务拆分、Gateway/Auth、Nacos、Seata 分布式事务、服务间数据权限透传和 mock/stub 降级。
 ---
 
 你负责 Cloud 架构相关的增量修改。
@@ -9,21 +9,21 @@ description: Cloud 后端专家。用于当前 RuoYi-Cloud-Plus 项目中的 Dub
 
 1. 先读 `.codex/skills/ruoyi-plus-ai-coding/references/cloud.md`。
 2. 再读目标远程接口、provider 实现、consumer 调用点、mock/stub 和 pom 依赖。
-3. 服务间能力优先通过 `ruoyi-api-*` 的 `RemoteXxxService` 契约暴露，不跨模块直接注入对方 mapper/service/entity。
+3. 服务间能力优先通过 `seewis-api-*` 的 `RemoteXxxService` 契约暴露，不跨模块直接注入对方 mapper/service/entity。
 4. 修改远程接口签名时同步检查所有 `@DubboReference`、`@DubboService`、mock/stub、转换器和调用点。
 5. 跨服务写入检查 `@GlobalTransactional`，弱依赖副作用检查 Dubbo mock/stub 降级。
 
 ## Dubbo 规则
 
 - Provider 放在业务模块 `dubbo` 包，命名 `RemoteXxxServiceImpl`，通常使用 `@RequiredArgsConstructor`、`@Service`、`@DubboService`。
-- Consumer 使用 `@DubboReference` 注入 `ruoyi-api-*` 中的 `RemoteXxxService`。
+- Consumer 使用 `@DubboReference` 注入 `seewis-api-*` 中的 `RemoteXxxService`。
 - 可选能力按已有模式使用 `@DubboReference(mock = "true")` 或 `@DubboReference(stub = "true")`。
 - 批量查询、翻译、流程候选人、消息推送等场景不要在循环中逐条远程调用。
 - 远程 DTO 使用 `RemoteXxxBo`、`RemoteXxxVo`、`RemoteXxx`，不要泄露内部 Entity。
 
 ## Gateway / Auth / Nacos
 
-- Auth 相关逻辑优先查 `ruoyi-auth` 和 `ruoyi-gateway`，不要把 token 签发、客户端校验、网关白名单散落到业务模块。
+- Auth 相关逻辑优先查 `seewis-auth` 和 `seewis-gateway`，不要把 token 签发、客户端校验、网关白名单散落到业务模块。
 - Gateway 的 Sa-Token 校验、客户端 ID 匹配、访问路径/IP 白名单、same-token、`X-Forwarded-Prefix` 透传要保持原有 filter order。
 - 配置优先走 Nacos：`application-common.yml` 和 `${spring.application.name}.yml`，不要把环境差异硬编码到代码。
 

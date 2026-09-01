@@ -8,11 +8,11 @@
 |---|---|---|
 | `application-common.yml` | 所有服务共享的公共配置 | `spring.data.redis`（host/port/password）、`spring.rabbitmq`、`sa-token.jwt-secret-key`（务必换成自己的随机串）、监控账号（nacos discovery metadata） |
 | `datasource.yml` | 数据库连接 | 各库 jdbc 地址/账号/密码（system / job / ai / workflow） |
-| `ruoyi-auth.yml` | 认证服务 | `security.captcha`（验证码开关与类型）、`security.xcx.apps`（小程序 appid/密钥兜底配置，正式建议用参数管理 `sys.account.xcxApps`）、`justauth`（三方登录密钥） |
-| `ruoyi-gateway.yml` | 网关 | `security.ignore.whites`（放行白名单）、路由规则 |
-| `ruoyi-system.yml` | 系统模块 | `spring.liquibase.enabled`：**全新空库首次启动改为 `true`** 初始化表结构和种子数据，初始化完成后建议改回 `false` |
-| `ruoyi-resource.yml` / `ruoyi-job.yml` / `ruoyi-workflow.yml` / `ruoyi-gen.yml` / `ruoyi-ai.yml` / `ruoyi-snailai-server.yml` / `ruoyi-snailjob-server.yml` | 对应模块 | 各自的 liquibase 开关、第三方参数，按需修改 |
-| `ruoyi-monitor.yml` | SpringBoot Admin 监控 | 监控服务账号密码，按需修改 |
+| `seewis-auth.yml` | 认证服务 | `security.captcha`（验证码开关与类型）、`security.xcx.apps`（小程序 appid/密钥兜底配置，正式建议用参数管理 `sys.account.xcxApps`）、`justauth`（三方登录密钥） |
+| `seewis-gateway.yml` | 网关 | `security.ignore.whites`（放行白名单）、路由规则 |
+| `seewis-system.yml` | 系统模块 | `spring.liquibase.enabled`：**全新空库首次启动改为 `true`** 初始化表结构和种子数据，初始化完成后建议改回 `false` |
+| `seewis-resource.yml` / `seewis-job.yml` / `seewis-workflow.yml` / `seewis-gen.yml` / `seewis-ai.yml` / `seewis-snailai-server.yml` / `seewis-snailjob-server.yml` | 对应模块 | 各自的 liquibase 开关、第三方参数，按需修改 |
+| `seewis-monitor.yml` | SpringBoot Admin 监控 | 监控服务账号密码，按需修改 |
 | `seata-server.properties` | Seata 服务端配置 | 脚本只导入 `*.yml`，此文件需手动在 Nacos 控制台创建（dataId `seata-server.properties`，group `DEFAULT_GROUP`，类型 `properties`） |
 
 > 注意：**导入会覆盖服务器上 dataId 相同的同名配置**（按 dataId 全量覆盖），服务器上已有个性化修改的配置请先备份或在控制台核对差异。

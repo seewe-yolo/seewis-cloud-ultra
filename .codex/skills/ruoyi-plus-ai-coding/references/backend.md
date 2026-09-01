@@ -2,14 +2,14 @@
 
 ## 优先参考的代码来源
 
-- `ruoyi-modules/ruoyi-gen/src/main/resources/fm/java/*.ftl`
-- `ruoyi-modules/ruoyi-demo/...`
-- `ruoyi-modules/ruoyi-system/...`
-- `ruoyi-modules/ruoyi-workflow/...`
-- `ruoyi-api/...`
-- `ruoyi-auth/...`
-- `ruoyi-gateway/...`
-- `ruoyi-common/ruoyi-common-mybatis/...`
+- `seewis-modules/seewis-gen/src/main/resources/fm/java/*.ftl`
+- `seewis-example/seewis-demo/...`
+- `seewis-modules/seewis-system/...`
+- `seewis-modules/seewis-workflow/...`
+- `seewis-api/...`
+- `seewis-auth/...`
+- `seewis-gateway/...`
+- `seewis-common/seewis-common-mybatis/...`
 
 ## 决策顺序
 
@@ -69,7 +69,7 @@
 - 复杂模块里 mapper 可能同时继承 `MPJBaseMapper<Entity>` 并使用 `QueryBuilder.lambdaJoin(...)` 构造 MPJ 查询，遇到这种风格要延续，不要换一种写法。
 - 只有在 `selectVoList/selectVoPage` 不够用时，才补 XML 或自定义 mapper 方法。
 - Mapper 默认方法可以承载短小的 wrapper 查询；涉及复杂业务编排、缓存、事务或跨 mapper 写入时放到 service。
-- `ruoyi-system` 的用户、角色、菜单、部门等模块常带数据权限、MPJ 联表、角色状态过滤，修改前先读对应 mapper/service。
+- `seewis-system` 的用户、角色、菜单、部门等模块常带数据权限、MPJ 联表、角色状态过滤，修改前先读对应 mapper/service。
 
 ### Mapper 建议结构
 
@@ -175,9 +175,9 @@
 
 ## Cloud 服务规则
 
-- 涉及 Dubbo、`ruoyi-api` 远程契约、Gateway、Nacos、Seata 或服务间调用时，同时读取 [cloud.md](cloud.md)。
+- 涉及 Dubbo、`seewis-api` 远程契约、Gateway、Nacos、Seata 或服务间调用时，同时读取 [cloud.md](cloud.md)。
 - Cloud 服务间调用优先通过 `RemoteXxxService` + `@DubboReference` / `@DubboService`，不要跨模块直接注入其他服务的 mapper/service。
-- 远程接口、远程 BO/VO/domain、mock/stub 放在 `ruoyi-api-*`；业务实现放在对应业务模块 `dubbo` 包。
+- 远程接口、远程 BO/VO/domain、mock/stub 放在 `seewis-api-*`；业务实现放在对应业务模块 `dubbo` 包。
 - 跨服务写入检查 `@GlobalTransactional(rollbackFor = Exception.class)`；弱依赖远程调用检查是否需要 `mock = "true"` 或 `stub = "true"` 降级。
 
 ## common-mybatis 规则
@@ -207,7 +207,7 @@
 
 ## 工作流模块规则
 
-- `ruoyi-workflow` 通常带 `@ConditionalOnEnable`，新增 workflow bean、controller、service 时检查同包是否需要该条件。
+- `seewis-workflow` 通常带 `@ConditionalOnEnable`，新增 workflow bean、controller、service 时检查同包是否需要该条件。
 - 流程分类、任务、实例等查询常带分类权限或用户维度过滤，先读同类 mapper/service 再改。
 - 工作流的翻译实现可以放在 workflow 模块内，例如流程分类 ID 到名称，仍应遵守 `TranslationInterface` 批量翻译规则。
 
@@ -265,7 +265,7 @@
 - 不要给新的管理接口漏掉权限注解。
 - 没有明确必要时，不要从 `BaseMapperPlus` 风格退回手工映射。
 - 前端查询页用了日期范围时，不要删掉后端 `params` 相关处理。
-- 不要把 `ruoyi-system` 这类复杂逻辑强行简化成生成器式单表 CRUD。
+- 不要把 `seewis-system` 这类复杂逻辑强行简化成生成器式单表 CRUD。
 
 ## 交付前自检
 

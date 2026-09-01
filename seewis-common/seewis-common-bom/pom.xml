@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.dromara</groupId>
+    <artifactId>seewis-common-bom</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <description>
+        seewis-common-bom common依赖项
+    </description>
+
+    <properties>
+        <revision>6.0.0</revision>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 核心模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-core</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 接口模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-doc</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 安全模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 权限认证服务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-satoken</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 日志记录 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-log</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 通用service实现模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-service-impl</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- excel -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-excel</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 缓存服务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- web服务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 数据库服务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-mybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 定时任务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-job</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- RPC服务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-dubbo</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 分布式事务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-seata</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 自定义负载均衡 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-loadbalancer</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- oss服务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 邮件模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-mail</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 短信模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-sms</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- logstash日志推送模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-logstash</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- ES搜索引擎服务 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-elasticsearch</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- skywalking日志收集模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-skylog</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- prometheus监控 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-prometheus</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 通用翻译功能 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-translation</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 脱敏模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-sensitive</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 序列化模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-json</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 数据加解密模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-encrypt</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+
+            <!-- 消息推送模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-push</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- liteflow模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-liteflow</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 授权认证 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-social</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 配置中心 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-nacos</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 消息总线模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-bus</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- AI模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-ai</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-mqtt</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- mcp模块 -->
+            <dependency>
+                <groupId>org.dromara</groupId>
+                <artifactId>seewis-common-mcp</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -2,8 +2,8 @@
 
 ## 优先参考的代码来源
 
-- `ruoyi-modules/ruoyi-gen/src/main/resources/fm/vue/*.ftl`
-- `ruoyi-modules/ruoyi-gen/src/main/resources/fm/react/*.ftl`
+- `seewis-modules/seewis-gen/src/main/resources/fm/vue/*.ftl`
+- `seewis-modules/seewis-gen/src/main/resources/fm/react/*.ftl`
 - 前端工程中与目标模块最接近的现有页面
 
 当前 boot4 仓库通常只含后端与 generator 前端模板；如果前端工程不在当前 root，先以 generator 模板约定为准，再对照用户提供的前端目录或相邻仓库。

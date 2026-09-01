@@ -258,7 +258,7 @@ seata:
   registry:
     type: nacos
     nacos:
-      application: ruoyi-seata-server
+      application: seewis-seata-server
       server-addr: ${spring.cloud.nacos.server-addr}
       group: ${spring.cloud.nacos.discovery.group}
       username: ${spring.cloud.nacos.username}

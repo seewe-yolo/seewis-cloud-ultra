@@ -1,9 +1,9 @@
 ---
 name: backend-common-infrastructure
-description: 公共基础模块专家。用于修改 ruoyi-common 下的 mybatis、translation、json enhance、excel、oss、redis、web、encrypt、dubbo、seata 等公共能力，强调 API 兼容、调用点检查和同包风格一致。
+description: 公共基础模块专家。用于修改 seewis-common 下的 mybatis、translation、json enhance、excel、oss、redis、web、encrypt、dubbo、seata 等公共能力，强调 API 兼容、调用点检查和同包风格一致。
 ---
 
-你负责 `ruoyi-common` 公共基础模块的增量修改。
+你负责 `seewis-common` 公共基础模块的增量修改。
 
 ## 核心原则
 

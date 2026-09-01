@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.dromara</groupId>
-    <artifactId>ruoyi-cloud-plus</artifactId>
+    <artifactId>seewis-cloud-plus</artifactId>
     <version>${revision}</version>
 
-    <name>RuoYi-Cloud-Plus</name>
-    <url>https://gitee.com/dromara/RuoYi-Cloud-Plus</url>
-    <description>Dromara RuoYi-Cloud-Plus微服务系统</description>
+    <name>seewis-cloud-plus</name>
+    <url>https://gitee.com/dromara/seewis-cloud-plus</url>
+    <description>Dromara seewis-cloud-plus微服务系统</description>
 
     <properties>
         <!-- 项目基础配置 -->
@@ -88,16 +88,21 @@
         <maven.test.skip>true</maven.test.skip>
     </properties>
 
+    <!-- 地址默认从环境变量读取，也可通过 Maven -D 参数手动覆盖。 -->
     <profiles>
         <profile>
             <id>dev</id>
             <properties>
                 <!-- 环境标识，需要与配置文件的名称相对应 -->
                 <profiles.active>dev</profiles.active>
-                <nacos.server>8.155.43.204:8848</nacos.server>
-                <nacos.username>nacos</nacos.username>
+                <!-- 环境变量 NACOS_SERVER；手动输入：-Dnacos.server=host:8848 -->
+                <nacos.server>${env.NACOS_SERVER}</nacos.server>
+                <!-- 环境变量 NACOS_USERNAME；手动输入：-Dnacos.username=user -->
+                <nacos.username>${env.NACOS_USERNAME}</nacos.username>
+                <!-- 环境变量 NACOS_PASSWORD；手动输入：-Dnacos.password=password -->
                 <nacos.password>${env.NACOS_PASSWORD}</nacos.password>
-                <logstash.address>8.155.43.204:4560</logstash.address>
+                <!-- 环境变量 LOGSTASH_ADDRESS；手动输入：-Dlogstash.address=host:4560 -->
+                <logstash.address>${env.LOGSTASH_ADDRESS}</logstash.address>
             </properties>
             <activation>
                 <!-- 默认环境 -->
@@ -108,10 +113,10 @@
             <id>prod</id>
             <properties>
                 <profiles.active>prod</profiles.active>
-                <nacos.server>8.155.43.204:8848</nacos.server>
-                <nacos.username>nacos</nacos.username>
+                <nacos.server>${env.NACOS_SERVER}</nacos.server>
+                <nacos.username>${env.NACOS_USERNAME}</nacos.username>
                 <nacos.password>${env.NACOS_PASSWORD}</nacos.password>
-                <logstash.address>8.155.43.204:4560</logstash.address>
+                <logstash.address>${env.LOGSTASH_ADDRESS}</logstash.address>
             </properties>
         </profile>
     </profiles>
@@ -132,7 +137,7 @@
             <!-- SpringCloud Alibaba 微服务 -->
             <dependency>
                 <groupId>org.dromara</groupId>
-                <artifactId>ruoyi-common-alibaba-bom</artifactId>
+                <artifactId>seewis-common-alibaba-bom</artifactId>
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -177,7 +182,7 @@
             <!-- common 的依赖配置-->
             <dependency>
                 <groupId>org.dromara</groupId>
-                <artifactId>ruoyi-common-bom</artifactId>
+                <artifactId>seewis-common-bom</artifactId>
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -186,7 +191,7 @@
             <!-- api 的依赖配置-->
             <dependency>
                 <groupId>org.dromara</groupId>
-                <artifactId>ruoyi-api-bom</artifactId>
+                <artifactId>seewis-api-bom</artifactId>
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -446,13 +451,13 @@
     </dependencyManagement>
 
     <modules>
-        <module>ruoyi-auth</module>
-        <module>ruoyi-gateway</module>
-        <module>ruoyi-visual</module>
-        <module>ruoyi-modules</module>
-        <module>ruoyi-api</module>
-        <module>ruoyi-common</module>
-        <module>ruoyi-example</module>
+        <module>seewis-auth</module>
+        <module>seewis-gateway</module>
+        <module>seewis-visual</module>
+        <module>seewis-modules</module>
+        <module>seewis-api</module>
+        <module>seewis-common</module>
+        <module>seewis-example</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -590,4 +595,3 @@
     </pluginRepositories>
 
 </project>
-
