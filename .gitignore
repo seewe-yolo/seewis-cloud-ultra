@@ -46,3 +46,8 @@ nbdist/
 !*/build/*.xml
 
 .flattened-pom.xml
+
+######################################################################
+# OS & Runtime Logs
+.DS_Store
+logs/
