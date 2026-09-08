@@ -88,21 +88,17 @@
         <maven.test.skip>true</maven.test.skip>
     </properties>
 
-    <!-- 地址默认从环境变量读取，也可通过 Maven -D 参数手动覆盖。 -->
+    <!-- 地址与凭据为硬编码默认值，可通过 Maven -D 参数临时覆盖（如 -Dnacos.server=host:8848）。 -->
     <profiles>
         <profile>
             <id>dev</id>
             <properties>
                 <!-- 环境标识，需要与配置文件的名称相对应 -->
                 <profiles.active>dev</profiles.active>
-                <!-- 环境变量 NACOS_SERVER；手动输入：-Dnacos.server=host:8848 -->
-                <nacos.server>${env.NACOS_SERVER}</nacos.server>
-                <!-- 环境变量 NACOS_USERNAME；手动输入：-Dnacos.username=user -->
-                <nacos.username>${env.NACOS_USERNAME}</nacos.username>
-                <!-- 环境变量 NACOS_PASSWORD；手动输入：-Dnacos.password=password -->
-                <nacos.password>${env.NACOS_PASSWORD}</nacos.password>
-                <!-- 环境变量 LOGSTASH_ADDRESS；手动输入：-Dlogstash.address=host:4560 -->
-                <logstash.address>${env.LOGSTASH_ADDRESS}</logstash.address>
+                <nacos.server>localhost:8848</nacos.server>
+                <nacos.username>nacos</nacos.username>
+                <nacos.password>nacos</nacos.password>
+                <logstash.address>localhost:4560</logstash.address>
                 <!-- Nacos 命名空间，与 script/config/nacos 导入脚本的 namespaceId 对应；手动输入：-Dnacos.namespace=xxx -->
                 <nacos.namespace>dev</nacos.namespace>
             </properties>
@@ -115,10 +111,10 @@
             <id>prod</id>
             <properties>
                 <profiles.active>prod</profiles.active>
-                <nacos.server>${env.NACOS_SERVER}</nacos.server>
-                <nacos.username>${env.NACOS_USERNAME}</nacos.username>
-                <nacos.password>${env.NACOS_PASSWORD}</nacos.password>
-                <logstash.address>${env.LOGSTASH_ADDRESS}</logstash.address>
+                <nacos.server>localhost:8848</nacos.server>
+                <nacos.username>nacos</nacos.username>
+                <nacos.password>nacos</nacos.password>
+                <logstash.address>localhost:4560</logstash.address>
                 <nacos.namespace>prod</nacos.namespace>
             </properties>
         </profile>

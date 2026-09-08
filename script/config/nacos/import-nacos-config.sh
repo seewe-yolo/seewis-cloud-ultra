@@ -10,7 +10,7 @@
 
 set -euo pipefail
 
-NACOS_ADDR="${NACOS_ADDR:-http://locahost:8848}"
+NACOS_ADDR="${NACOS_ADDR:-http://localhost:8848}"
 NACOS_USER="${NACOS_USER:-nacos}"
 GROUP="DEFAULT_GROUP"
 NACOS_NAMESPACES="${NACOS_NAMESPACES:-dev,prod}"
