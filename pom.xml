@@ -84,6 +84,9 @@
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
         <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
+        <!-- Nacos 命名空间，各模块 application.yml 通过 @nacos.namespace@ 引用。
+             修改方式：1) 直接改此处 2) 子模块 pom 的 <properties> 中覆盖 3) 命令行 -Dnacos.namespace=xxx -->
+        <nacos.namespace>public</nacos.namespace>
         <!-- 打包默认跳过测试 -->
         <maven.test.skip>true</maven.test.skip>
     </properties>

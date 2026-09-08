@@ -251,7 +251,7 @@ seata:
     nacos:
       server-addr: ${spring.cloud.nacos.server-addr}
       group: ${spring.cloud.nacos.config.group}
-      namespace: public
+      namespace: ${spring.cloud.nacos.config.namespace}
       username: ${spring.cloud.nacos.username}
       password: ${spring.cloud.nacos.password}
       data-id: seata-server.properties
@@ -263,6 +263,6 @@ seata:
       group: ${spring.cloud.nacos.discovery.group}
       username: ${spring.cloud.nacos.username}
       password: ${spring.cloud.nacos.password}
-      namespace: public
+      namespace: ${spring.cloud.nacos.discovery.namespace}
   # 关闭自动代理
   enable-auto-data-source-proxy: false
