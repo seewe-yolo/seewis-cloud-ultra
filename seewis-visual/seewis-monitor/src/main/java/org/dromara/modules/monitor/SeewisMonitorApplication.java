@@ -11,9 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @EnableAdminServer
 @SpringBootApplication
-public class RuoYiMonitorApplication {
+public class SeewisMonitorApplication {
     public static void main(String[] args) {
-        SpringApplication.run(RuoYiMonitorApplication.class, args);
+        SpringApplication.run(SeewisMonitorApplication.class, args);
         System.out.println("(♥◠‿◠)ﾉﾞ  监控中心启动成功   ლ(´ڡ`ლ)ﾞ  ");
     }
 }

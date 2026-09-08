@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2026-05-26
  */
 @SpringBootApplication
-public class SnailAiServerApplication {
+public class SeewisSnailAiServerApplication {
 
     /**
      * Snail AI 服务启动入口。

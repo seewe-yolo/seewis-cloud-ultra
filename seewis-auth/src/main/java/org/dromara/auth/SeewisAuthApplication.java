@@ -12,9 +12,9 @@ import org.springframework.boot.context.metrics.buffering.BufferingApplicationSt
  */
 @EnableDubbo
 @SpringBootApplication
-public class RuoYiAuthApplication {
+public class SeewisAuthApplication {
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(RuoYiAuthApplication.class);
+        SpringApplication application = new SpringApplication(SeewisAuthApplication.class);
         application.setApplicationStartup(new BufferingApplicationStartup(2048));
         application.run(args);
         System.out.println("(♥◠‿◠)ﾉﾞ  认证授权中心启动成功   ლ(´ڡ`ლ)ﾞ  ");

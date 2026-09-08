@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="RuoYiAuthApplication" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+  <configuration default="false" name="SeewisAuthApplication" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
     <deployment type="dockerfile">
       <settings>
         <option name="imageTag" value="ruoyi/seewis-auth:6.0.0" />

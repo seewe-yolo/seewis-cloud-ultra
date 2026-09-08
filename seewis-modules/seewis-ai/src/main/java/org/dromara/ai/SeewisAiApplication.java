@@ -10,10 +10,10 @@ import org.springframework.boot.context.metrics.buffering.BufferingApplicationSt
  * @author opensnail
  */
 @SpringBootApplication
-public class RuoYiAiApplication {
+public class SeewisAiApplication {
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(RuoYiAiApplication.class);
+        SpringApplication application = new SpringApplication(SeewisAiApplication.class);
         application.setApplicationStartup(new BufferingApplicationStartup(2048));
         application.run(args);
         System.out.println("(♥◠‿◠)ﾉﾞ  AI模块启动成功   ლ(´ڡ`ლ)ﾞ  ");

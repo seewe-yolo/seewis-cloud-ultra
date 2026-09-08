@@ -12,9 +12,9 @@ import org.springframework.boot.context.metrics.buffering.BufferingApplicationSt
  */
 @EnableDubbo
 @SpringBootApplication
-public class RuoYiGenApplication {
+public class SeewisGenApplication {
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(RuoYiGenApplication.class);
+        SpringApplication application = new SpringApplication(SeewisGenApplication.class);
         application.setApplicationStartup(new BufferingApplicationStartup(2048));
         application.run(args);
         System.out.println("(♥◠‿◠)ﾉﾞ  代码生成模块启动成功   ლ(´ڡ`ლ)ﾞ  ");

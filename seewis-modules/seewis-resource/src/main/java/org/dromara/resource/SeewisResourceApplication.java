@@ -13,9 +13,9 @@ import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
  */
 @EnableDubbo
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class RuoYiResourceApplication {
+public class SeewisResourceApplication {
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(RuoYiResourceApplication.class);
+        SpringApplication application = new SpringApplication(SeewisResourceApplication.class);
         application.setApplicationStartup(new BufferingApplicationStartup(2048));
         application.run(args);
         System.out.println("(♥◠‿◠)ﾉﾞ  资源服务模块启动成功   ლ(´ڡ`ლ)ﾞ  ");

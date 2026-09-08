@@ -12,9 +12,9 @@ import org.springframework.boot.context.metrics.buffering.BufferingApplicationSt
  */
 @EnableDubbo
 @SpringBootApplication
-public class RuoYiSystemApplication {
+public class SeewisSystemApplication {
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(RuoYiSystemApplication.class);
+        SpringApplication application = new SpringApplication(SeewisSystemApplication.class);
         application.setApplicationStartup(new BufferingApplicationStartup(2048));
         application.run(args);
         System.out.println("(♥◠‿◠)ﾉﾞ  系统模块启动成功   ლ(´ڡ`ლ)ﾞ  ");

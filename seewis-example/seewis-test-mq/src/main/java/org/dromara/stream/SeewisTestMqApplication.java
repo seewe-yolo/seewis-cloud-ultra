@@ -10,10 +10,10 @@ import org.springframework.boot.context.metrics.buffering.BufferingApplicationSt
  * @author Lion Li
  */
 @SpringBootApplication
-public class RuoYiTestMqApplication {
+public class SeewisTestMqApplication {
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(RuoYiTestMqApplication.class);
+        SpringApplication application = new SpringApplication(SeewisTestMqApplication.class);
         application.setApplicationStartup(new BufferingApplicationStartup(2048));
         application.run(args);
         System.out.println("(♥◠‿◠)ﾉﾞ  MQ案例模块启动成功   ლ(´ڡ`ლ)ﾞ  ");
