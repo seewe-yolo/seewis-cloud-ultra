@@ -3,7 +3,6 @@
 --changeset seewis:ai-postgresql-table-baseline dbms:postgresql splitStatements:false
 -- ============================================================
 -- Snail AI PostgreSQL 全量建表脚本（仅 CREATE，无 ALTER）
--- 使用：psql -U user -d snail_ai -f postgres_ry_ai.sql
 -- 结构来源：snail_ai_schema.sql
 -- ============================================================
 

@@ -3,7 +3,6 @@
 --changeset seewis:ai-mysql-table-baseline dbms:mysql splitStatements:true
 -- ============================================================
 -- Snail AI MySQL 全量建表脚本（仅 CREATE，无 ALTER）
--- 使用：mysql -u user -p database < ry-ai.sql
 -- ============================================================
 
 
