@@ -150,8 +150,6 @@ public class MybatisPlusConfiguration {
      * IllegalSQLInnerInterceptor sql性能规范插件(垃圾SQL拦截)
      * IdentifierGenerator 自定义主键策略
      * https://baomidou.com/pages/568eb2/
-     * TenantLineInnerInterceptor 多租户插件
-     * https://baomidou.com/pages/aef2f2/
      * DynamicTableNameInnerInterceptor 动态表名插件
      * https://baomidou.com/pages/2a45ff/
      */

@@ -66,7 +66,6 @@ final class DataPermissionIgnoreContext {
         return !Boolean.TRUE.equals(ignoreStrategy.getDynamicTableName())
             && !Boolean.TRUE.equals(ignoreStrategy.getBlockAttack())
             && !Boolean.TRUE.equals(ignoreStrategy.getIllegalSql())
-            && !Boolean.TRUE.equals(ignoreStrategy.getTenantLine())
             && CollectionUtil.isEmpty(ignoreStrategy.getOthers());
     }
 
