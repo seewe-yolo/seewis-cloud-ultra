@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="seewis-gen" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+  <configuration default="false" name="RuoYiGenApplication" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
     <deployment type="dockerfile">
       <settings>
         <option name="imageTag" value="ruoyi/seewis-gen:6.0.0" />

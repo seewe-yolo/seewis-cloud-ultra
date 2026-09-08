@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="seewis-gateway" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+  <configuration default="false" name="RuoYiGatewayApplication" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
     <deployment type="dockerfile">
       <settings>
         <option name="imageTag" value="ruoyi/seewis-gateway:6.0.0" />
