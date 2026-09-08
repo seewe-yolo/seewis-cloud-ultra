@@ -84,9 +84,6 @@
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
         <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
-        <!-- Nacos 命名空间，各模块 application.yml 通过 @nacos.namespace@ 引用。
-             修改方式：1) 直接改此处 2) 子模块 pom 的 <properties> 中覆盖 3) 命令行 -Dnacos.namespace=xxx -->
-        <nacos.namespace>public</nacos.namespace>
         <!-- 打包默认跳过测试 -->
         <maven.test.skip>true</maven.test.skip>
     </properties>
@@ -106,6 +103,8 @@
                 <nacos.password>${env.NACOS_PASSWORD}</nacos.password>
                 <!-- 环境变量 LOGSTASH_ADDRESS；手动输入：-Dlogstash.address=host:4560 -->
                 <logstash.address>${env.LOGSTASH_ADDRESS}</logstash.address>
+                <!-- Nacos 命名空间，与 script/config/nacos 导入脚本的 namespaceId 对应；手动输入：-Dnacos.namespace=xxx -->
+                <nacos.namespace>dev</nacos.namespace>
             </properties>
             <activation>
                 <!-- 默认环境 -->
@@ -120,6 +119,7 @@
                 <nacos.username>${env.NACOS_USERNAME}</nacos.username>
                 <nacos.password>${env.NACOS_PASSWORD}</nacos.password>
                 <logstash.address>${env.LOGSTASH_ADDRESS}</logstash.address>
+                <nacos.namespace>prod</nacos.namespace>
             </properties>
         </profile>
     </profiles>
