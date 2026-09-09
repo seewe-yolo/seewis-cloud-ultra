@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.dromara</groupId>
-    <artifactId>seewis-cloud-plus</artifactId>
+    <artifactId>seewis-cloud-ultra</artifactId>
     <version>${revision}</version>
 
-    <name>seewis-cloud-plus</name>
+    <name>seewis-cloud-ultra</name>
     <url>https://gitee.com/dromara/seewis-cloud-plus</url>
     <description>Dromara seewis-cloud-plus微服务系统</description>
 
