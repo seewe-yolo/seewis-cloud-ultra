@@ -1,13 +1,13 @@
 databaseChangeLog:
   - include:
-      file: mysql/workflow_table.sql
+      file: mysql/liquibase/workflow_table.sql
       relativeToChangelogFile: true
   - include:
-      file: mysql/workflow_data.sql
+      file: mysql/liquibase/workflow_data.sql
       relativeToChangelogFile: true
   - include:
-      file: postgresql/workflow_table.sql
+      file: postgresql/liquibase/workflow_table.sql
       relativeToChangelogFile: true
   - include:
-      file: postgresql/workflow_data.sql
+      file: postgresql/liquibase/workflow_data.sql
       relativeToChangelogFile: true

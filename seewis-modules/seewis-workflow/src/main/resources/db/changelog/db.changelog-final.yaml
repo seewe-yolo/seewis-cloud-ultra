@@ -1,0 +1,15 @@
+# finalbase 通道：全新库一键全量初始化（与 master 通道二选一，勿混用同一数据库）
+# 用法：liquibase --changelog-file=classpath:db/changelog/db.changelog-final.yaml update
+databaseChangeLog:
+  - include:
+      file: mysql/finalbase/workflow_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: mysql/finalbase/workflow_data.sql
+      relativeToChangelogFile: true
+  - include:
+      file: postgresql/finalbase/workflow_table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: postgresql/finalbase/workflow_data.sql
+      relativeToChangelogFile: true

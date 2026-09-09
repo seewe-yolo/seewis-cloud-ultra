@@ -1,13 +1,13 @@
 databaseChangeLog:
   - include:
-      file: mysql/system_table.sql
+      file: mysql/liquibase/system_table.sql
       relativeToChangelogFile: true
   - include:
-      file: mysql/system_data.sql
+      file: mysql/liquibase/system_data.sql
       relativeToChangelogFile: true
 #  - include:
-#      file: postgresql/system_table.sql
+#      file: postgresql/liquibase/system_table.sql
 #      relativeToChangelogFile: true
 #  - include:
-#      file: postgresql/system_data.sql
+#      file: postgresql/liquibase/system_data.sql
 #      relativeToChangelogFile: true

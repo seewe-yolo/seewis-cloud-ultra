@@ -1,13 +1,13 @@
 databaseChangeLog:
   - include:
-      file: mysql/ai_table.sql
+      file: mysql/liquibase/ai_table.sql
       relativeToChangelogFile: true
   - include:
-      file: mysql/ai_data.sql
+      file: mysql/liquibase/ai_data.sql
       relativeToChangelogFile: true
   - include:
-      file: postgresql/ai_table.sql
+      file: postgresql/liquibase/ai_table.sql
       relativeToChangelogFile: true
   - include:
-      file: postgresql/ai_data.sql
+      file: postgresql/liquibase/ai_data.sql
       relativeToChangelogFile: true

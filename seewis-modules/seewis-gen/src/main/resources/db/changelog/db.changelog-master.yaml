@@ -1,13 +1,13 @@
 databaseChangeLog:
   - include:
-      file: mysql/gen_table.sql
+      file: mysql/liquibase/gen_table.sql
       relativeToChangelogFile: true
   - include:
-      file: mysql/gen_data.sql
+      file: mysql/liquibase/gen_data.sql
       relativeToChangelogFile: true
   - include:
-      file: postgresql/gen_table.sql
+      file: postgresql/liquibase/gen_table.sql
       relativeToChangelogFile: true
   - include:
-      file: postgresql/gen_data.sql
+      file: postgresql/liquibase/gen_data.sql
       relativeToChangelogFile: true
